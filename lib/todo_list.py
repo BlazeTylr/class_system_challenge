@@ -1,29 +1,18 @@
+from lib.todo import *
+
 class TodoList:
     def __init__(self):
-        pass
+        self.todo_list = []
 
     def add(self, todo):
-        # Parameters:
-        #   todo: an instance of Todo
-        # Returns:
-        #   Nothing
-        # Side-effects:
-        #   Adds the todo to the list of todos
-        pass
+        self.todo_list.append(Todo(todo))
 
     def incomplete(self):
-        # Returns:
-        #   A list of Todo instances representing the todos that are not complete
-        pass
+        return (todo for todo in self.todo_list if not todo.complete)
 
     def complete(self):
-        # Returns:
-        #   A list of Todo instances representing the todos that are complete
-        pass
+        return (todo_el for todo_el in self.todo_list if todo_el.complete)
 
     def give_up(self):
-        # Returns:
-        #   Nothing
-        # Side-effects:
-        #   Marks all todos as complete
-        pass
+        for todo_el in self.todo_list:
+            todo_el.mark_complete()
